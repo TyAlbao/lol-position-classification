@@ -1,3 +1,2 @@
-remote_theme: pages-themes/Lanyon@v0.2.0
-plugins:
-  - jekyll-remote-theme 
+# League of Legends Position Analysis and Classification
+Final project for DSC 80 at UCSD. Analyzed and classified player positions in League of Legends.
