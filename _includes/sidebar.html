@@ -16,7 +16,7 @@
       `layout: page` in the front-matter. See readme for usage.
     {% endcomment %}
 
-    {% assign ordered_pages = "DataCleaning.md,Hypothesis.md,BaselineModel.md,FinalModel.md,FairnessAnalysis.md" | split: "," %}
+    {% assign ordered_pages = "DataCleaning.md,Hypothesis.md,FramingProblem.md,BaselineModel.md,FinalModel.md,FairnessAnalysis.md" | split: "," %}
 
     {% for page_name in ordered_pages %}
       {% for node in site.pages %}
