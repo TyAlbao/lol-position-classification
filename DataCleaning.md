@@ -33,7 +33,7 @@ print(cleaned_df.head())
 
 
 We then created a new column, "class" and "class_actual", which shows whether or not a champion is a 
-tank/bruiser or a tanku support. To determine the class, we filtered for champions with high damage
+tank/bruiser or a tanky support. To determine the class, we filtered for champions with high damage
 mitigated per minute and amounts of wards placed, and compared it to "class_actual" which is a manually
 mapped class to compare accuracy.
 
