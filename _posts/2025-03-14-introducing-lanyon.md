@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Background
+title: Introduction
 ---
 
 What is Leauge of Legends?
