@@ -16,13 +16,14 @@
       `layout: page` in the front-matter. See readme for usage.
     {% endcomment %}
 
-    {% assign pages_list = site.pages | sort:"url" %}
-    {% for node in pages_list %}
-      {% if node.title != null %}
-        {% if node.layout == "page" %}
+    {% assign ordered_pages = "DataCleaning.md,Hypothesis.md,BaselineModel.md,FinalModel.md,FairnessAnalysis.md" | split: "," %}
+
+    {% for page_name in ordered_pages %}
+      {% for node in site.pages %}
+        {% if node.path contains page_name %}
           <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | absolute_url }}">{{ node.title }}</a>
         {% endif %}
-      {% endif %}
+      {% endfor %}
     {% endfor %}
   </nav>
 
