@@ -33,7 +33,7 @@ print(cleaned_df.head())
 
 
 We then created a new column, "class" and "class_actual", which shows whether or not a champion is a 
-tank/bruiser or a tanku support. To determine the class, we filtered for champions with high damage
+tank/bruiser or a tanky support. To determine the class, we filtered for champions with high damage
 mitigated per minute and amounts of wards placed, and compared it to "class_actual" which is a manually
 mapped class to compare accuracy.
 
@@ -65,11 +65,13 @@ Aggregation:
 * hard to be confident in true levels because there are significantly less tanky supports seen
 * this is why we are going to run a hypothesis test, to see how significant the differences in dmpm are
 
-<iframe src="{{ site.url }}{{ site.baseurl }}/assets/pivot_code.html" width=800 height=600 frameBorder=0></iframe>
-
 ```py
 df.pivot_table(index = 'class', values = 'damagemitigatedperminute', aggfunc = ['mean', 'sum'])
 ```
+
+<iframe src="{{ site.url }}{{ site.baseurl }}/assets/pivot_code.html" width=800 height=300 frameBorder=0></iframe>
+
+
 
 * This table shows the same thing as the graph above but in table-form
 
@@ -79,7 +81,8 @@ A lot of the data is missing in general which is shown in the column "datacomple
 for completeness. This means that any missing data left is NMAR, for example, 'goldat25mins' has some missing values
 which can be expected because not all games last 25 mins long. Thus it's NMAR.
 
-One column that depends on another is towers and gamelength, which the longer the game happens,
+Tanks/Bruisers tend to destroy towers more often than tanky supports, becaues that is one of the jobs of 
+a top laner. One column that depends on another is towers and gamelength, which the longer the game happens,
 the more towers are destroyed:
 
 ```py
@@ -105,7 +108,9 @@ print((np.array(diffs) <= observed_diff).mean())
 .498
 ```
 
-One columns that does not depend on another is towers and barons, as they are unrelated in missingness:
+Tanks/Bruisers destroying towers more often than tanky supports should not affect Barons, as
+Barons require a team to kill. One columns that does not depend on another is towers and barons,
+as they are unrelated in missingness:
 
 ```py
 nmar_col = 'towers'
